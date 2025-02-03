@@ -10,7 +10,7 @@ import java.util.List;
 public class LoginPage {
     WebDriver driver;
     WebDriverWait wait;
-
+    // TODO: define locators
     private By userNameField=By.name("username");
     private By passwordField=By.cssSelector("input[type='password']");
     private By loginButton=By.cssSelector("button[type='submit']");
@@ -22,15 +22,16 @@ public class LoginPage {
         this.driver=driver;
         this.wait=new WebDriverWait(driver, Duration.ofSeconds(5));
     }
-
+    //TODO: define action methods
     public void addUserName(String userName){
         wait.until(ExpectedConditions.visibilityOfElementLocated(userNameField));
         driver.findElement(userNameField).sendKeys(userName);
     }
-    public void addPassword(String password){
+
+    public void loginSteps(String userName,String password){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(userNameField));
+        driver.findElement(userNameField).sendKeys(userName);
         driver.findElement(passwordField).sendKeys(password);
-    }
-    public void clickLoginButton(){
         driver.findElement(loginButton).click();
     }
     public boolean isErrorMessageVisible(){

@@ -18,44 +18,32 @@ public class LoginPageTests extends BaseTest {
 
     @Test (description = "Login with valid username and password")
     public void validLogin(){
-        LP.addUserName("Admin");
-        LP.addPassword("admin123");
-        LP.clickLoginButton();
+        LP.loginSteps("Admin","admin123");
         assertTrue(DP.isDashboardWordVisible());
     }
     @Test(description ="Login with invalid username and valid password")
     public void invalidUserName(){
-        LP.addUserName("Nagham");
-        LP.addPassword("admin123");
-        LP.clickLoginButton();
+        LP.loginSteps("nagham","admin123");
         assertTrue(LP.isErrorMessageVisible());
     }
     @Test (description = "Login with invalid password and valid username")
     public void invalidPassword(){
-        LP.addUserName("Admin");
-        LP.addPassword("12345");
-        LP.clickLoginButton();
+        LP.loginSteps("Admin","123");
         assertTrue(LP.isErrorMessageVisible());
     }
     @Test(description = "Login with empty username")
     public void emptyUserName(){
-       LP.addUserName("");
-       LP.addPassword("admin123");
-       LP.clickLoginButton();
+        LP.loginSteps("","admin123");
         assertTrue(LP.isValidationMessagesVisible());
     }
     @Test(description = "Login with empty password")
     public void emptyPassword(){
-        LP.addUserName("Admin");
-        LP.addPassword("");
-        LP.clickLoginButton();
+        LP.loginSteps("Admin","");
         assertTrue(LP.isValidationMessagesVisible());
     }
     @Test(description = "Login with empty username and password")
     public void emptyUserNameAndPassword(){
-        LP.addUserName("");
-        LP.addPassword("");
-        LP.clickLoginButton();
+        LP.loginSteps("","");
         assertTrue(LP.isValidationMessagesVisible());
     }
     @Test(description = "Click on forgot your password ?")

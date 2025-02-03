@@ -4,16 +4,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 
 public class ResetPasswordPage {
     WebDriver driver;
     WebDriverWait wait;
 
-
+    // TODO: define locators
     private By resetPasswordButton=By.cssSelector("button[type='submit']");
     private By cancelButton=By.cssSelector("button[type='button']");
+
+    //TODO: define action methods
     public ResetPasswordPage(WebDriver driver){
         this.driver=driver;
         this.wait=new WebDriverWait(driver, Duration.ofSeconds(5));
